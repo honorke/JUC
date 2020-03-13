@@ -1,0 +1,20 @@
+synchorized的底层实现
+JDK早期 重量级
+后来改进：
+锁升级的概念
+ 	厕所所长（一 二)
+sync(object)
+只有一个线程 markword 记录这个线程ID 偏向锁（你是我的第一个，我偏向你)
+如果有线程征用 升级为自旋锁cas  旋转十次没得到
+升级为重量级锁 转换为等待状态不占cpu
+锁只能升级不能降级
+
+执行时间长 重量级锁
+加锁执行时间短 线程少 用自旋锁
+
+synchorized锁的是对象不是代码
+
+synchronized(Object)
+不能用String常量 Integer Long
+所有的常量都相同，锁定没法用 
+  
